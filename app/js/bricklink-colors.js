@@ -3,6 +3,15 @@ let ALL_BRICKLINK_SOLID_COLORS = [
         name: "White",
         hex: "#ffffff",
         id: 1,
+        chinese_id: 1,
+    },
+    // Chinese color table entry. No BrickLink color id is known for this exact hex/name.
+    {
+        name: "Light Light Gray",
+        hex: "#d6d1c9",
+        id: null,
+        chinese_id: 2,
+        chinese_only: true,
     },
     {
         name: "Very Light Gray",
@@ -23,31 +32,60 @@ let ALL_BRICKLINK_SOLID_COLORS = [
         name: "Light Gray",
         hex: "#9c9c9c",
         id: 9,
+        chinese_id: 3,
     },
     {
         name: "Dark Gray",
         hex: "#6b5a5a",
         id: 10,
+        chinese_id: 4,
     },
     {
         name: "Dark Bluish Gray",
         hex: "#595d60",
         id: 85,
     },
+    // Chinese color table entry. No BrickLink color id is known for this exact hex/name.
+    {
+        name: "Dark Dark Gray",
+        hex: "#434343",
+        id: null,
+        chinese_id: 5,
+        chinese_only: true,
+    },
+    // Chinese color table entry. No BrickLink color id is known for this exact hex/name.
+    {
+        name: "Black Gray",
+        hex: "#353535",
+        id: null,
+        chinese_id: 8,
+        chinese_only: true,
+    },
     {
         name: "Black",
         hex: "#212121",
         id: 11,
+        chinese_id: 6,
+    },
+    // Chinese color table entry. No BrickLink color id is known for this exact hex/name.
+    {
+        name: "Light Royal Blue",
+        hex: "#a7a2a4",
+        id: null,
+        chinese_id: 7,
+        chinese_only: true,
     },
     {
         name: "Dark Red",
         hex: "#6a0e15",
         id: 59,
+        chinese_id: 31,
     },
     {
         name: "Red",
         hex: "#b30006",
         id: 5,
+        chinese_id: 30,
     },
     {
         name: "Rust",
@@ -73,6 +111,7 @@ let ALL_BRICKLINK_SOLID_COLORS = [
         name: "Sand Red",
         hex: "#8c6b6b",
         id: 58,
+        chinese_id: 32,
     },
     {
         name: "Reddish Brown",
@@ -83,21 +122,61 @@ let ALL_BRICKLINK_SOLID_COLORS = [
         name: "Brown",
         hex: "#532115",
         id: 8,
+        chinese_id: 17,
     },
     {
         name: "Dark Brown",
         hex: "#330000",
         id: 120,
+        chinese_id: 18,
     },
     {
         name: "Dark Tan",
         hex: "#907450",
         id: 69,
+        chinese_id: 20,
     },
     {
         name: "Tan",
         hex: "#dec69c",
         id: 2,
+        chinese_id: 19,
+    },
+    // Chinese color table entries. No BrickLink color id is known for these exact hex/name pairs.
+    {
+        name: "Skin White",
+        hex: "#e0d5b8",
+        id: null,
+        chinese_id: 9,
+        chinese_only: true,
+    },
+    {
+        name: "Flesh Pink",
+        hex: "#c7b894",
+        id: null,
+        chinese_id: 10,
+        chinese_only: true,
+    },
+    {
+        name: "Light Flesh",
+        hex: "#daa8a4",
+        id: null,
+        chinese_id: 11,
+        chinese_only: true,
+    },
+    {
+        name: "Flesh Tan",
+        hex: "#d6c69e",
+        id: null,
+        chinese_id: 12,
+        chinese_only: true,
+    },
+    {
+        name: "Flesh Red",
+        hex: "#f5b785",
+        id: null,
+        chinese_id: 13,
+        chinese_only: true,
     },
     {
         name: "Light Nougat",
@@ -108,6 +187,14 @@ let ALL_BRICKLINK_SOLID_COLORS = [
         name: "Nougat",
         hex: "#ffaf7d",
         id: 28,
+        chinese_id: 14,
+    },
+    {
+        name: "Medium Dark Flesh",
+        hex: "#e58659",
+        id: null,
+        chinese_id: 15,
+        chinese_only: true,
     },
     {
         name: "Medium Nougat",
@@ -143,6 +230,15 @@ let ALL_BRICKLINK_SOLID_COLORS = [
         name: "Dark Orange",
         hex: "#b35408",
         id: 68,
+        chinese_id: 16,
+    },
+    // Chinese color table entry. No BrickLink color id is known for this exact hex/name.
+    {
+        name: "Bright Orange",
+        hex: "#e7a904",
+        id: null,
+        chinese_id: 24,
+        chinese_only: true,
     },
     {
         name: "Neon Orange",
@@ -153,6 +249,7 @@ let ALL_BRICKLINK_SOLID_COLORS = [
         name: "Orange",
         hex: "#ff7e14",
         id: 4,
+        chinese_id: 25,
     },
     {
         name: "Medium Orange",
@@ -178,11 +275,21 @@ let ALL_BRICKLINK_SOLID_COLORS = [
         name: "Dark Yellow",
         hex: "#dd982e",
         id: 161,
+        chinese_id: 23,
+    },
+    // Chinese color table entry. No BrickLink color id is known for this exact hex/name.
+    {
+        name: "Bright Yellow",
+        hex: "#e0d167",
+        id: null,
+        chinese_id: 21,
+        chinese_only: true,
     },
     {
         name: "Yellow",
         hex: "#f7d117",
         id: 3,
+        chinese_id: 22,
     },
     {
         name: "Bright Light Yellow",
@@ -203,6 +310,7 @@ let ALL_BRICKLINK_SOLID_COLORS = [
         name: "Yellowish Green",
         hex: "#dfeea5",
         id: 158,
+        chinese_id: 44,
     },
     {
         name: "Neon Green",
@@ -218,26 +326,39 @@ let ALL_BRICKLINK_SOLID_COLORS = [
         name: "Lime",
         hex: "#a6ca55",
         id: 34,
+        chinese_id: 45,
     },
     {
         name: "Olive Green",
         hex: "#7c9051",
         id: 155,
+        chinese_id: 46,
+    },
+    // Chinese color table entry. No BrickLink color id is known for this exact hex/name.
+    {
+        name: "Army Green",
+        hex: "#616353",
+        id: null,
+        chinese_id: 52,
+        chinese_only: true,
     },
     {
         name: "Dark Green",
         hex: "#2e5543",
         id: 80,
+        chinese_id: 51,
     },
     {
         name: "Green",
         hex: "#00642e",
         id: 6,
+        chinese_id: 50,
     },
     {
         name: "Bright Green",
         hex: "#10cb31",
         id: 36,
+        chinese_id: 49,
     },
     {
         name: "Medium Green",
@@ -253,6 +374,7 @@ let ALL_BRICKLINK_SOLID_COLORS = [
         name: "Sand Green",
         hex: "#76a290",
         id: 48,
+        chinese_id: 47,
     },
     {
         name: "Dark Turquoise",
@@ -273,31 +395,45 @@ let ALL_BRICKLINK_SOLID_COLORS = [
         name: "Light Aqua",
         hex: "#ccffff",
         id: 152,
+        chinese_id: 48,
     },
     {
         name: "Dark Blue",
         hex: "#143044",
         id: 63,
+        chinese_id: 42,
     },
     {
         name: "Blue",
         hex: "#0057a6",
         id: 7,
+        chinese_id: 41,
     },
     {
         name: "Dark Azure",
         hex: "#3399ff",
         id: 153,
+        chinese_id: 39,
+    },
+    // Chinese color table entry. No BrickLink color id is known for this exact hex/name.
+    {
+        name: "Navy Blue",
+        hex: "#21bfcd",
+        id: null,
+        chinese_id: 38,
+        chinese_only: true,
     },
     {
         name: "Medium Azure",
         hex: "#42c0fb",
         id: 156,
+        chinese_id: 37,
     },
     {
         name: "Medium Blue",
         hex: "#61afff",
         id: 42,
+        chinese_id: 36,
     },
     {
         name: "Maersk Blue",
@@ -308,6 +444,7 @@ let ALL_BRICKLINK_SOLID_COLORS = [
         name: "Bright Light Blue",
         hex: "#9fc3e9",
         id: 105,
+        chinese_id: 40,
     },
     {
         name: "Light Blue",
@@ -323,6 +460,7 @@ let ALL_BRICKLINK_SOLID_COLORS = [
         name: "Sand Blue",
         hex: "#5a7184",
         id: 55,
+        chinese_id: 43,
     },
     {
         name: "Blue-Violet",
@@ -353,11 +491,13 @@ let ALL_BRICKLINK_SOLID_COLORS = [
         name: "Dark Purple",
         hex: "#5f2683",
         id: 89,
+        chinese_id: 35,
     },
     {
         name: "Purple",
         hex: "#a5499c",
         id: 24,
+        chinese_id: 34,
     },
     {
         name: "Light Purple",
@@ -368,6 +508,7 @@ let ALL_BRICKLINK_SOLID_COLORS = [
         name: "Medium Lavender",
         hex: "#885e9e",
         id: 157,
+        chinese_id: 33,
     },
     {
         name: "Clikits Lavender",
@@ -388,11 +529,13 @@ let ALL_BRICKLINK_SOLID_COLORS = [
         name: "Magenta",
         hex: "#b52952",
         id: 71,
+        chinese_id: 29,
     },
     {
         name: "Dark Pink",
         hex: "#c87080",
         id: 47,
+        chinese_id: 28,
     },
     {
         name: "Medium Dark Pink",
@@ -403,6 +546,7 @@ let ALL_BRICKLINK_SOLID_COLORS = [
         name: "Bright Pink",
         hex: "#ffbbff",
         id: 104,
+        chinese_id: 27,
     },
     {
         name: "Pink",
@@ -413,6 +557,7 @@ let ALL_BRICKLINK_SOLID_COLORS = [
         name: "Light Pink",
         hex: "#ffe1ff",
         id: 56,
+        chinese_id: 26,
     },
     {
         name: "Neon Yellow",
@@ -452,12 +597,21 @@ let ALL_BRICKLINK_SOLID_COLORS = [
 
 const HEX_TO_COLOR_NAME = {};
 ALL_BRICKLINK_SOLID_COLORS.forEach((color) => {
-    HEX_TO_COLOR_NAME[color.hex] = color.name;
+    if (HEX_TO_COLOR_NAME[color.hex] == null) {
+        HEX_TO_COLOR_NAME[color.hex] = color.name;
+    }
 });
 
 const COLOR_NAME_TO_ID = {};
 ALL_BRICKLINK_SOLID_COLORS.forEach((color) => {
     COLOR_NAME_TO_ID[color.name] = color.id;
+});
+
+const HEX_TO_CHINESE_ID = {};
+ALL_BRICKLINK_SOLID_COLORS.forEach((color) => {
+    if (color.chinese_id != null && HEX_TO_CHINESE_ID[color.hex] == null) {
+        HEX_TO_CHINESE_ID[color.hex] = color.chinese_id;
+    }
 });
 
 const KNOWN_BRICKLINK_STUD_COLOR_NAMES = [
@@ -584,13 +738,13 @@ const KNOWN_BRICKLINK_TILE_COLOR_NAMES = [
 ];
 
 const BRICKLINK_STUD_COLORS = ALL_BRICKLINK_SOLID_COLORS.filter((color) =>
-    KNOWN_BRICKLINK_STUD_COLOR_NAMES.includes(color.name)
+    KNOWN_BRICKLINK_STUD_COLOR_NAMES.includes(color.name),
 ).sort((a, b) => {
     return a.name > b.name ? 1 : -1;
 });
 
 const BRICKLINK_TILE_COLORS = ALL_BRICKLINK_SOLID_COLORS.filter((color) =>
-    KNOWN_BRICKLINK_TILE_COLOR_NAMES.includes(color.name)
+    KNOWN_BRICKLINK_TILE_COLOR_NAMES.includes(color.name),
 ).sort((a, b) => {
     return a.name > b.name ? 1 : -1;
 });

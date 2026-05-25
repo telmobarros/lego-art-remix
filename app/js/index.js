@@ -2400,6 +2400,7 @@ async function generateInstructions() {
     disableInteraction();
     runStep4(async () => {
         const isHighQuality = document.getElementById("high-quality-instructions-check").checked;
+        const colorIdMode = document.querySelector('input[name="instruction-color-id-mode"]:checked').value;
         const step4PixelArray = getPixelArrayFromCanvas(step4Canvas);
         const resultImage = isBleedthroughEnabled()
             ? revertDarkenedImage(
@@ -2424,7 +2425,8 @@ async function generateInstructions() {
             SCALING_FACTOR,
             step4CanvasUpscaled,
             titlePageCanvas,
-            selectedPixelPartNumber
+            selectedPixelPartNumber,
+            colorIdMode
         );
         setDPI(titlePageCanvas, isHighQuality ? HIGH_DPI : LOW_DPI);
 
@@ -2493,7 +2495,8 @@ async function generateInstructions() {
                 instructionPageCanvas,
                 i + 1,
                 selectedPixelPartNumber,
-                variablePixelPieceDimensionsForPage
+                variablePixelPieceDimensionsForPage,
+                colorIdMode
             );
 
             setDPI(instructionPageCanvas, isHighQuality ? HIGH_DPI : LOW_DPI);

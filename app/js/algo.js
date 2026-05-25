@@ -977,15 +977,16 @@ function drawStudCountForContext(
     ctx,
     horizontalOffset,
     verticalOffset,
-    pixelType
+    pixelType,
+    colorIdMode
 ) {
     const radius = scalingFactor / 2;
     ctx.font = `${scalingFactor / 2}px Arial`;
     availableStudHexList.forEach((pixelHex, i) => {
-        const number = i + 1;
+        const number = getInstructionColorId(pixelHex, i, colorIdMode);
         ctx.beginPath();
         const x = horizontalOffset;
-        const y = verticalOffset + radius * 2.5 * number;
+        const y = verticalOffset + radius * 2.5 * (i + 1);
         drawPixel(
             ctx,
             x - radius,
@@ -996,7 +997,7 @@ function drawStudCountForContext(
             PIXEL_TYPE_TO_FLATTENED[pixelType]
         );
         ctx.fillStyle = inverseHex(pixelHex);
-        ctx.fillText(number, x - (scalingFactor * (1 + Math.floor(number / 2) / 6)) / 8, y + scalingFactor / 8);
+        drawInstructionColorId(ctx, number, x, y);
         ctx.fillStyle = "#000000";
         if (!("" + pixelType).match("^variable.*$")) {
             ctx.fillText(`X ${studMap[pixelHex] || 0}`, x + radius * 1.5, y);
@@ -1018,6 +1019,30 @@ function drawStudCountForContext(
     ctx.stroke();
 }
 
+function drawInstructionColorId(ctx, colorId, x, y) {
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.fillText(colorId, x, y);
+    ctx.textAlign = "left";
+    ctx.textBaseline = "alphabetic";
+}
+
+function getInstructionColorId(pixelHex, fallbackIndex, colorIdMode) {
+    if (colorIdMode === "bricklink") {
+        const bricklinkColorId = COLOR_NAME_TO_ID[HEX_TO_COLOR_NAME[pixelHex]];
+        if (bricklinkColorId != null) {
+            return bricklinkColorId;
+        }
+    }
+    if (colorIdMode === "chinese") {
+        const chineseColorId = HEX_TO_CHINESE_ID[pixelHex];
+        if (chineseColorId != null) {
+            return chineseColorId;
+        }
+    }
+    return fallbackIndex + 1;
+}
+
 function generateInstructionTitlePage(
     pixelArray,
     width,
@@ -1026,7 +1051,8 @@ function generateInstructionTitlePage(
     scalingFactor,
     finalImageCanvas,
     canvas,
-    pixelType
+    pixelType,
+    colorIdMode
 ) {
     const ctx = canvas.getContext("2d");
 
@@ -1049,7 +1075,8 @@ function generateInstructionTitlePage(
         ctx,
         pictureWidth * 0.25,
         pictureHeight * 0.2 - radius,
-        pixelType
+        pixelType,
+        colorIdMode
     );
 
     ctx.fillStyle = "#000000";
@@ -1110,7 +1137,8 @@ function generateInstructionPage(
     canvas,
     plateNumber,
     pixelType,
-    variablePixelPieceDimensions
+    variablePixelPieceDimensions,
+    colorIdMode
 ) {
     const ctx = canvas.getContext("2d");
 
@@ -1145,7 +1173,7 @@ function generateInstructionPage(
 
     const studToNumber = {};
     availableStudHexList.forEach((stud, i) => {
-        studToNumber[stud] = i + 1;
+        studToNumber[stud] = getInstructionColorId(stud, i, colorIdMode);
     });
 
     ctx.font = `${scalingFactor / 2}px Arial`;
@@ -1171,11 +1199,7 @@ function generateInstructionPage(
                 PIXEL_TYPE_TO_FLATTENED[pixelType]
             );
             ctx.fillStyle = inverseHex(pixelHex);
-            ctx.fillText(
-                studToNumber[pixelHex],
-                x - (scalingFactor * (1 + Math.floor(studToNumber[pixelHex] / 2) / 6)) / 8,
-                y + scalingFactor / 8
-            );
+            drawInstructionColorId(ctx, studToNumber[pixelHex], x, y);
         }
     }
 
@@ -1211,7 +1235,8 @@ function generateInstructionPage(
         ctx,
         pictureWidth * 0.25,
         pictureHeight * 0.2 - radius,
-        pixelType
+        pixelType,
+        colorIdMode
     );
 }
 
