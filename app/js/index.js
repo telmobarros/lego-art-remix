@@ -814,6 +814,72 @@ importOption.addEventListener("click", () => {
 });
 mixInStudMapOptions.appendChild(importOption);
 
+const importFromClipboardOption = document.createElement("a");
+importFromClipboardOption.className = "dropdown-item btn";
+importFromClipboardOption.textContent = "Import From Clipboard";
+importFromClipboardOption.value = null;
+importFromClipboardOption.addEventListener("click", async () => {
+    try {
+        const clipboardText = await navigator.clipboard.readText();
+        mixInStudMap(parseClipboardStudMap(clipboardText), true);
+    } catch (err) {
+        console.error("Async: Could not import studs from clipboard: ", err);
+        alert("Could not read from the clipboard. Copy the Excel cells and try again.");
+    }
+});
+mixInStudMapOptions.appendChild(importFromClipboardOption);
+
+function parseClipboardStudMap(clipboardText) {
+    const studMap = {};
+    const sortedStuds = [];
+    const missingColors = [];
+
+    clipboardText
+        .split(/\r?\n/)
+        .map((line) => line.trim())
+        .filter((line) => line.length > 0)
+        .forEach((line) => {
+            const columns = line.includes("\t")
+                ? line.split("\t").map((column) => column.trim())
+                : (line.match(/^(.+?)\s+(-?\d+(?:[,.]\d+)?)$/) || []).slice(1);
+            if (columns.length < 2) {
+                return;
+            }
+
+            const colorName = columns[0];
+            const count = Math.round(parseFloat(columns[1].replace(",", ".")) || 0);
+            if (count <= 0) {
+                return;
+            }
+
+            const colorHex = COLOR_NAME_TO_HEX[colorName.toLowerCase()];
+            if (colorHex == null) {
+                missingColors.push(colorName);
+                return;
+            }
+
+            if (studMap[colorHex] == null) {
+                sortedStuds.push(colorHex);
+                studMap[colorHex] = 0;
+            }
+            studMap[colorHex] += count;
+        });
+
+    if (missingColors.length > 0) {
+        alert(`Could not import unknown colors: ${missingColors.join(", ")}`);
+    }
+    if (sortedStuds.length === 0) {
+        alert("No studs were imported from the clipboard.");
+    }
+
+    return {
+        name: "Clipboard",
+        officialName: "Clipboard",
+        sortedStuds: sortedStuds,
+        studMap: studMap,
+    };
+}
+
 document.getElementById("import-stud-map-file-input").addEventListener(
     "change",
     (e) => {

@@ -607,6 +607,11 @@ ALL_BRICKLINK_SOLID_COLORS.forEach((color) => {
     COLOR_NAME_TO_ID[color.name] = color.id;
 });
 
+const COLOR_NAME_TO_HEX = {};
+ALL_BRICKLINK_SOLID_COLORS.forEach((color) => {
+    COLOR_NAME_TO_HEX[color.name.toLowerCase()] = color.hex;
+});
+
 const HEX_TO_CHINESE_ID = {};
 ALL_BRICKLINK_SOLID_COLORS.forEach((color) => {
     if (color.chinese_id != null && HEX_TO_CHINESE_ID[color.hex] == null) {
